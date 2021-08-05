@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class GamesEntity extends Equatable {
+class GameEntity extends Equatable {
   final int id;
   final String slug;
   final String name;
@@ -31,7 +31,7 @@ class GamesEntity extends Equatable {
   final ESRBRatingEntity? esrbRating;
   final List<ShortScreenshotsEntity>? shortScreenshots;
 
-  GamesEntity({
+  GameEntity({
     required this.id,
     required this.slug,
     required this.name,
@@ -63,6 +63,7 @@ class GamesEntity extends Equatable {
     this.shortScreenshots,
   });
 
+  @override
   List<Object?> get props => [
         id,
         slug,
@@ -108,6 +109,7 @@ class RatingsEntity extends Equatable {
       required this.count,
       required this.percent});
 
+  @override
   List<Object> get props => [id, title, count, percent];
 }
 
@@ -128,6 +130,7 @@ class AddedByStatusEntity extends Equatable {
     required this.playing,
   });
 
+  @override
   List<Object> get props => [yet, owned, beaten, toplay, dropped, playing];
 }
 
@@ -143,6 +146,7 @@ class PlatformsEntity extends Equatable {
       this.requirementsEn,
       this.requirementsRu});
 
+  @override
   List<Object?> get props => [
         platform,
         releasedAt,
@@ -172,6 +176,7 @@ class PlatformEntity extends Equatable {
     this.imageBackground,
   });
 
+  @override
   List<Object?> get props => [
         id,
         name,
@@ -190,6 +195,7 @@ class RequirementsEntity extends Equatable {
 
   RequirementsEntity({required this.minimum, required this.recommended});
 
+  @override
   List<Object> get props => [minimum, recommended];
 }
 
@@ -198,6 +204,7 @@ class ParentPlatformsEntity extends Equatable {
 
   ParentPlatformsEntity({this.platform});
 
+  @override
   List<Object?> get props => [platform];
 }
 
@@ -212,32 +219,9 @@ class ParentPlatformEntity extends Equatable {
     required this.slug,
   });
 
+  @override
   List<Object> get props => [id, name, slug];
 }
-
-// class PlatformEntity {
-//   final int id;
-//   final String name;
-//   final String slug;
-
-//   PlatformEntity({required this.id, required this.name, required this.slug});
-
-//   factory PlatformEntity.fromJson(Map<String, dynamic> json) {
-//     return PlatformEntity(
-//       id: json['id'],
-//       name: json['name'],
-//       slug: json['slug'],
-//     );
-//   }
-
-//   Map<String, dynamic> toJson() {
-//     final Map<String, dynamic> data = new Map<String, dynamic>();
-//     data['id'] = this.id;
-//     data['name'] = this.name;
-//     data['slug'] = this.slug;
-//     return data;
-//   }
-// }
 
 class GenresEntity extends Equatable {
   final int id;
@@ -254,6 +238,7 @@ class GenresEntity extends Equatable {
     required this.imageBackground,
   });
 
+  @override
   List<Object> get props => [id, name, slug, gamesCount, imageBackground];
 }
 
@@ -263,6 +248,7 @@ class StoresEntity extends Equatable {
 
   StoresEntity({this.id, this.store});
 
+  @override
   List<Object?> get props => [id, store];
 }
 
@@ -283,6 +269,7 @@ class StoreEntity extends Equatable {
     required this.imageBackground,
   });
 
+  @override
   List<Object> get props => [
         id,
         name,
@@ -310,6 +297,7 @@ class TagsEntity extends Equatable {
     required this.imageBackground,
   });
 
+  @override
   List<Object> get props => [
         id,
         name,
@@ -326,6 +314,7 @@ class ShortScreenshotsEntity extends Equatable {
 
   ShortScreenshotsEntity({required this.id, required this.image});
 
+  @override
   List<Object?> get props => [id, image];
 }
 
@@ -340,5 +329,6 @@ class ESRBRatingEntity extends Equatable {
     required this.slug,
   });
 
+  @override
   List<Object> get props => [id, name, slug];
 }
