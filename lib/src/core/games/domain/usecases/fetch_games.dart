@@ -8,7 +8,7 @@ class FetchGames {
 
   FetchGames(this.gameRepository);
 
-  Future<Either<Failure, List<GamesEntity>>> call() async {
+  Future<Either<Failure, List<GameEntity>>> call() async {
     return gameRepository.fetchGameList();
   }
 }

@@ -5,5 +5,5 @@ import 'package:gamez_hub/src/core/games/domain/entities/game_entity.dart';
 abstract class GameRepository {
   /// Fetch the list of [GamesEntity] from the server
   /// Return [Failure] on error.
-  Future<Either<Failure, List<GamesEntity>>> fetchGameList();
+  Future<Either<Failure, List<GameEntity>>> fetchGameList();
 }

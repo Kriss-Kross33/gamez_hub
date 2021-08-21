@@ -15,7 +15,7 @@ void main() {
   final gameModel = gameModelTst;
   test(('should be a subclass of GameEntity'), () {
     //* assert
-    expect(gameModel, isA<GamesEntity>());
+    expect(gameModel, isA<GameEntity>());
   });
 
   group('fromJson', () {
