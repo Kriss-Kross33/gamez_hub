@@ -136,7 +136,7 @@ class AddedByStatusEntity extends Equatable {
 
 class PlatformsEntity extends Equatable {
   final PlatformEntity? platform;
-  final String releasedAt;
+  final String? releasedAt;
   final RequirementsEntity? requirementsEn;
   final RequirementsEntity? requirementsRu;
 
@@ -191,12 +191,12 @@ class PlatformEntity extends Equatable {
 
 class RequirementsEntity extends Equatable {
   final String minimum;
-  final String recommended;
+  final String? recommended;
 
-  RequirementsEntity({required this.minimum, required this.recommended});
+  RequirementsEntity({required this.minimum, this.recommended});
 
   @override
-  List<Object> get props => [minimum, recommended];
+  List<Object?> get props => [minimum, recommended];
 }
 
 class ParentPlatformsEntity extends Equatable {
