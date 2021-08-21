@@ -3,13 +3,15 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:gamez_hub/src/core/games/domain/entities/game_entity.dart';
 import 'package:gamez_hub/src/core/games/domain/repositories/game_repository.dart';
 import 'package:gamez_hub/src/core/games/domain/usecases/fetch_games.dart';
+import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
 import '../../data/models/game.dart';
+import 'fetch_games_test.mocks.dart';
 
-class MockGameRepository extends Mock implements GameRepository {}
-//@GenerateMocks([MockGameRepository'])
+// class MockGameRepository extends Mock implements GameRepository {}
 
+@GenerateMocks([GameRepository])
 void main() {
   late MockGameRepository mockGameRepository;
   late FetchGames fetchGames;
@@ -21,7 +23,7 @@ void main() {
 
   test('should return the [List<GameEntity>] from the repository', () async {
     //* arrange
-    List<GamesEntity> games = gameModelsTst.cast<GamesEntity>();
+    List<GameEntity> games = gameModelsTst.cast<GameEntity>();
     //print(games);
     when(mockGameRepository.fetchGameList())
         .thenAnswer((_) async => Right(games));
