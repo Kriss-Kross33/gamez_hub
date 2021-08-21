@@ -316,13 +316,13 @@ class AddedByStatusModel extends AddedByStatusEntity {
 
 class PlatformsModel extends PlatformsEntity {
   final PlatformModel? platform;
-  final String releasedAt;
+  final String? releasedAt;
   final RequirementsModel? requirementsEn;
   final RequirementsModel? requirementsRu;
 
   PlatformsModel({
     this.platform,
-    required this.releasedAt,
+    this.releasedAt,
     this.requirementsEn,
     this.requirementsRu,
   }) : super(
@@ -341,7 +341,9 @@ class PlatformsModel extends PlatformsEntity {
       requirementsEn: json['requirements_en'] != null
           ? new RequirementsModel.fromJson(json['requirements_en'])
           : null,
-      requirementsRu: json['requirements_ru'],
+      requirementsRu: json['requirements_ru'] != null
+          ? new RequirementsModel.fromJson(json['requirements_ru'])
+          : null,
     );
   }
 
@@ -405,7 +407,7 @@ class PlatformModel extends PlatformEntity {
 
 class RequirementsModel extends RequirementsEntity {
   final String minimum;
-  final String recommended;
+  final String? recommended;
 
   RequirementsModel({
     required this.minimum,
@@ -414,6 +416,30 @@ class RequirementsModel extends RequirementsEntity {
 
   factory RequirementsModel.fromJson(Map<String, dynamic> json) {
     return RequirementsModel(
+      minimum: json['minimum'],
+      recommended: json['recommended'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['minimum'] = this.minimum;
+    data['recommended'] = this.recommended;
+    return data;
+  }
+}
+
+class RequirementsRuModel extends RequirementsEntity {
+  final String minimum;
+  final String recommended;
+
+  RequirementsRuModel({
+    required this.minimum,
+    required this.recommended,
+  }) : super(minimum: minimum, recommended: recommended);
+
+  factory RequirementsRuModel.fromJson(Map<String, dynamic> json) {
+    return RequirementsRuModel(
       minimum: json['minimum'],
       recommended: json['recommended'],
     );
