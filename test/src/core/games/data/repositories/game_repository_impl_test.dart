@@ -4,6 +4,7 @@ import 'package:gamez_hub/src/core/error/exception.dart';
 import 'package:gamez_hub/src/core/error/failure.dart';
 import 'package:gamez_hub/src/core/games/data/datasources/game_local_data_source.dart';
 import 'package:gamez_hub/src/core/games/data/datasources/game_remote_data_source.dart';
+import 'package:gamez_hub/src/core/games/data/models/game_enums.dart';
 import 'package:gamez_hub/src/core/games/data/models/game_model.dart';
 import 'package:gamez_hub/src/core/games/data/repositories/game_repository_impl.dart';
 import 'package:gamez_hub/src/core/network/network_info.dart';
@@ -13,7 +14,12 @@ import 'package:mockito/mockito.dart';
 import '../models/game.dart';
 import 'game_repository_impl_test.mocks.dart';
 
-@GenerateMocks([NetworkInfo, GameRemoteDataSource, GameLocalDataSource])
+@GenerateMocks(
+  [NetworkInfo, GameRemoteDataSource, GameLocalDataSource],
+  customMocks: <MockSpec>[
+    MockSpec<GameRepositoryImpl>(returnNullOnMissingStub: true)
+  ],
+)
 void main() {
   late MockNetworkInfo mockNetworkInfo;
   late MockGameRemoteDataSource mockGameRemoteDataSource;
@@ -53,13 +59,16 @@ void main() {
           () async {
         //* ararange
 
-        when(mockGameRemoteDataSource.fetchGameList())
+        when(mockGameRemoteDataSource.fetchGameList(
+                ordering: GamesOrdering.none))
             .thenAnswer((_) async => gameModelList);
         //* act
         // List<GameEntity> games = gameModelList.cast<GameEntity>().toList();
-        final result = await gameRepsitory.fetchGameList();
+        final result =
+            await gameRepsitory.fetchGameList(ordering: GamesOrdering.none);
         //* assert
-        verify(mockGameRemoteDataSource.fetchGameList());
+        verify(mockGameRemoteDataSource.fetchGameList(
+            ordering: GamesOrdering.none));
         expect(
             result.isRight(), true); //right<Failure, List<GameEntity>>(games));
       });
@@ -70,7 +79,7 @@ void main() {
       //   //* ararange
 
       //   when(mockGameRemoteDataSource.fetchGameList())
-      //       .thenAnswer((realInvocation) async => gameModelsTst);
+      //       .thenAnswer((_) async => gameModelsTst);
       //   //* act
       //   // List<GameEntity> games = gameModelList.cast<GameEntity>().toList();
       //   final result = await gameRepsitory.fetchGameList();
@@ -86,10 +95,11 @@ void main() {
           'should cache the data when the data is returned from the remote server successfully',
           () async {
         //* arrange
-        when(mockGameRemoteDataSource.fetchGameList())
-            .thenAnswer((realInvocation) async => gameModelList);
+        when(mockGameRemoteDataSource.fetchGameList(
+                ordering: GamesOrdering.none))
+            .thenAnswer((_) async => gameModelList);
         //* act
-        await gameRepsitory.fetchGameList();
+        await gameRepsitory.fetchGameList(ordering: GamesOrdering.none);
         await mockLocalDataSource.addGameListToCache(gameModelList);
         //* assert
         verify(mockLocalDataSource.addGameListToCache(gameModelList));
@@ -100,12 +110,15 @@ void main() {
           'should return [ServerFailure] when the call to remote data source is not successful',
           () async {
         //* arrange
-        when(mockGameRemoteDataSource.fetchGameList())
+        when(mockGameRemoteDataSource.fetchGameList(
+                ordering: GamesOrdering.none))
             .thenThrow(ServerException());
         //* act
-        final result = await gameRepsitory.fetchGameList();
+        final result =
+            await gameRepsitory.fetchGameList(ordering: GamesOrdering.none);
         //* assert
-        verify(mockGameRemoteDataSource.fetchGameList());
+        verify(mockGameRemoteDataSource.fetchGameList(
+            ordering: GamesOrdering.none));
         expect(result, equals(Left(ServerFailure())));
         //verifyNoMoreInteractions(mockGameRemoteDataSource.fetchGameList());
       });
@@ -120,9 +133,10 @@ void main() {
           () async {
         //* arrange
         when(mockLocalDataSource.fetchCahedGames())
-            .thenAnswer((realInvocation) async => gameModelList);
+            .thenAnswer((_) async => gameModelList);
         //* act
-        final result = await gameRepsitory.fetchGameList();
+        final result =
+            await gameRepsitory.fetchGameList(ordering: GamesOrdering.none);
         //* assert
         verifyZeroInteractions(mockGameRemoteDataSource);
         verify(mockLocalDataSource.fetchCahedGames());
@@ -134,7 +148,8 @@ void main() {
         //* arrange
         when(mockLocalDataSource.fetchCahedGames()).thenThrow(CacheException());
         //* act
-        final result = await gameRepsitory.fetchGameList();
+        final result =
+            await gameRepsitory.fetchGameList(ordering: GamesOrdering.none);
         //* assert
         verifyZeroInteractions(mockGameRemoteDataSource);
         verify(mockLocalDataSource.fetchCahedGames());

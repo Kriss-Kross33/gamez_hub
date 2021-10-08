@@ -4,7 +4,7 @@ class GameEntity extends Equatable {
   final int id;
   final String slug;
   final String name;
-  final String released;
+  final String? released;
   final bool tba;
   final String backgroundImage;
   final double rating;
@@ -14,7 +14,7 @@ class GameEntity extends Equatable {
   final int reviewsTextCount;
   final int added;
   final AddedByStatusEntity? addedByStatus;
-  final int metacritic;
+  final int? metacritic;
   final int playtime;
   final int suggestionsCount;
   final String updated;
@@ -114,12 +114,12 @@ class RatingsEntity extends Equatable {
 }
 
 class AddedByStatusEntity extends Equatable {
-  final int yet;
+  final int? yet;
   final int owned;
   final int beaten;
-  final int toplay;
-  final int dropped;
-  final int playing;
+  final int? toplay;
+  final int? dropped;
+  final int? playing;
 
   AddedByStatusEntity({
     required this.yet,
@@ -131,7 +131,7 @@ class AddedByStatusEntity extends Equatable {
   });
 
   @override
-  List<Object> get props => [yet, owned, beaten, toplay, dropped, playing];
+  List<Object?> get props => [yet, owned, beaten, toplay, dropped, playing];
 }
 
 class PlatformsEntity extends Equatable {

@@ -4,7 +4,7 @@ class GameModel extends GameEntity {
   final int id;
   final String slug;
   final String name;
-  final String released;
+  final String? released;
   final bool tba;
   final String backgroundImage;
   final double rating;
@@ -14,7 +14,7 @@ class GameModel extends GameEntity {
   final int reviewsTextCount;
   final int added;
   final AddedByStatusModel? addedByStatus;
-  final int metacritic;
+  final int? metacritic;
   final int playtime;
   final int suggestionsCount;
   final String updated;
@@ -268,12 +268,12 @@ class RatingsModel extends RatingsEntity {
 }
 
 class AddedByStatusModel extends AddedByStatusEntity {
-  final int yet;
+  final int? yet;
   final int owned;
   final int beaten;
-  final int toplay;
-  final int dropped;
-  final int playing;
+  final int? toplay;
+  final int? dropped;
+  final int? playing;
 
   AddedByStatusModel({
     required this.yet,

@@ -9,25 +9,29 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  flutter:
-    sdk: flutter
+  bottom_navy_bar: ^6.0.0
+  cached_network_image: ^3.1.0
+  connectivity: ^3.0.6
 
   cupertino_icons: ^1.0.2
   dartz: ^0.10.0-nullsafety.2
   equatable: ^2.0.3
-  flutter_bloc: ^7.0.1
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^7.1.0
+  flutter_rating_bar: ^4.0.0
   flutter_secure_storage: ^4.2.0
+  flutter_svg: ^0.22.0
   get_it: ^7.2.0
   http: ^0.13.3
-  connectivity: ^3.0.6
   internet_connection_checker: ^0.0.1+2
+  font_awesome_flutter: ^9.1.0
 
 dev_dependencies:
+  build_runner: ^2.0.6
   flutter_test:
     sdk: flutter
-  
   mockito: ^5.0.12
-  build_runner: ^2.0.6
 
 flutter:
   uses-material-design: true
@@ -35,12 +39,24 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
-  
+    - assets/images/svg/
+    - assets/images/png/
+
   fonts:
     - family: Bolt
       fonts:
         - asset: assets/fonts/bolt-regular.ttf
         - asset: assets/fonts/bolt-semibold.ttf
+          weight: 700
+    - family: Poppings
+      fonts:
+        - asset: assets/fonts/Poppins-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Poppins-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Poppins-SemiBold.ttf
+          weight: 500
+        - asset: assets/fonts/Poppins-Bold.ttf
           weight: 700
   #         style: italic
   #   - family: Trajan Pro

@@ -6,6 +6,7 @@ import 'dart:async' as _i4;
 
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:gamez_hub/src/core/error/failure.dart' as _i5;
+import 'package:gamez_hub/src/core/games/data/models/game_enums.dart' as _i7;
 import 'package:gamez_hub/src/core/games/domain/entities/game_entity.dart'
     as _i6;
 import 'package:gamez_hub/src/core/games/domain/repositories/game_repository.dart'
@@ -31,8 +32,10 @@ class MockGameRepository extends _i1.Mock implements _i3.GameRepository {
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, List<_i6.GameEntity>>> fetchGameList() =>
-      (super.noSuchMethod(Invocation.method(#fetchGameList, []),
+  _i4.Future<_i2.Either<_i5.Failure, List<_i6.GameEntity>>> fetchGameList(
+          {_i7.GamesOrdering? ordering}) =>
+      (super.noSuchMethod(
+              Invocation.method(#fetchGameList, [], {#ordering: ordering}),
               returnValue:
                   Future<_i2.Either<_i5.Failure, List<_i6.GameEntity>>>.value(
                       _FakeEither<_i5.Failure, List<_i6.GameEntity>>()))

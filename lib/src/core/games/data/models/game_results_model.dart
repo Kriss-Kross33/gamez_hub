@@ -32,9 +32,9 @@ class GameResultModel {
     data['count'] = this.count;
     data['next'] = this.next;
     data['previous'] = this.previous;
-    if (this.games != null) {
-      data['results'] = this.games.map((v) => v.toJson()).toList();
-    }
+    //if (this.games != null) {
+    data['results'] = this.games.map((v) => v.toJson()).toList();
+    //}
     return data;
   }
 }

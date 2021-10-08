@@ -27,8 +27,9 @@ class MockApiClient extends _i1.Mock implements _i3.ApiClient {
   }
 
   @override
-  _i4.Future<_i2.Response> get({dynamic endpoint}) =>
-      (super.noSuchMethod(Invocation.method(#get, [], {#endpoint: endpoint}),
+  _i4.Future<_i2.Response> get({dynamic endpoint, String? query = r''}) =>
+      (super.noSuchMethod(
+              Invocation.method(#get, [], {#endpoint: endpoint, #query: query}),
               returnValue: Future<_i2.Response>.value(_FakeResponse()))
           as _i4.Future<_i2.Response>);
 }

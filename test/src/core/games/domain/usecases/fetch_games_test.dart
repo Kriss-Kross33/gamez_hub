@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:gamez_hub/src/core/games/data/models/game_enums.dart';
 import 'package:gamez_hub/src/core/games/domain/entities/game_entity.dart';
 import 'package:gamez_hub/src/core/games/domain/repositories/game_repository.dart';
 import 'package:gamez_hub/src/core/games/domain/usecases/fetch_games.dart';
@@ -25,12 +26,12 @@ void main() {
     //* arrange
     List<GameEntity> games = gameModelsTst.cast<GameEntity>();
     //print(games);
-    when(mockGameRepository.fetchGameList())
+    when(mockGameRepository.fetchGameList(ordering: GamesOrdering.none))
         .thenAnswer((_) async => Right(games));
     //* act
-    final result = await fetchGames();
+    final result = await fetchGames(ordering: GamesOrdering.none);
     //* assert
-    verify(mockGameRepository.fetchGameList());
+    verify(mockGameRepository.fetchGameList(ordering: GamesOrdering.none));
     expect(result, equals(Right(games)));
     verifyNoMoreInteractions(mockGameRepository);
   });

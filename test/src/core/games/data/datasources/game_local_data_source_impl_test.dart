@@ -29,7 +29,7 @@ void main() {
       //* arrange
       final games = gameModelsTst;
       when(mockFlutterSecureStorage.read(key: anyNamed('key')))
-          .thenAnswer((realInvocation) async => fixture('games.json'));
+          .thenAnswer((_) async => fixture('games.json'));
       //* act
       final result = await localDataSource.fetchCahedGames();
       //* assert

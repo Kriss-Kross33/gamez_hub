@@ -12,10 +12,10 @@ import 'game.dart';
 class MockGameModel extends Mock implements GameModel {}
 
 void main() {
-  final gameModel = gameModelTst;
+  GameModel gameModel = gameModelTst;
   test(('should be a subclass of GameEntity'), () {
     //* assert
-    expect(gameModel, isA<GameEntity>());
+    expect(gameModelTst, isA<GameEntity>());
   });
 
   group('fromJson', () {

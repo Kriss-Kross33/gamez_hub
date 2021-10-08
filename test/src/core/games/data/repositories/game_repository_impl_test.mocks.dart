@@ -2,13 +2,20 @@
 // in gamez_hub/test/src/core/games/data/repositories/game_repository_impl_test.dart.
 // Do not manually edit this file.
 
-import 'dart:async' as _i3;
+import 'dart:async' as _i6;
 
+import 'package:dartz/dartz.dart' as _i5;
+import 'package:gamez_hub/src/core/error/failure.dart' as _i10;
 import 'package:gamez_hub/src/core/games/data/datasources/game_local_data_source.dart'
-    as _i6;
-import 'package:gamez_hub/src/core/games/data/datasources/game_remote_data_source.dart'
     as _i4;
-import 'package:gamez_hub/src/core/games/data/models/game_model.dart' as _i5;
+import 'package:gamez_hub/src/core/games/data/datasources/game_remote_data_source.dart'
+    as _i3;
+import 'package:gamez_hub/src/core/games/data/models/game_enums.dart' as _i8;
+import 'package:gamez_hub/src/core/games/data/models/game_model.dart' as _i7;
+import 'package:gamez_hub/src/core/games/data/repositories/game_repository_impl.dart'
+    as _i9;
+import 'package:gamez_hub/src/core/games/domain/entities/game_entity.dart'
+    as _i11;
 import 'package:gamez_hub/src/core/network/network_info.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
@@ -20,6 +27,16 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: prefer_const_constructors
 // ignore_for_file: unnecessary_parenthesis
 
+class _FakeNetworkInfo extends _i1.Fake implements _i2.NetworkInfo {}
+
+class _FakeGameRemoteDataSource extends _i1.Fake
+    implements _i3.GameRemoteDataSource {}
+
+class _FakeGameLocalDataSource extends _i1.Fake
+    implements _i4.GameLocalDataSource {}
+
+class _FakeEither<L, R> extends _i1.Fake implements _i5.Either<L, R> {}
+
 /// A class which mocks [NetworkInfo].
 ///
 /// See the documentation for Mockito's code generation for more information.
@@ -29,44 +46,74 @@ class MockNetworkInfo extends _i1.Mock implements _i2.NetworkInfo {
   }
 
   @override
-  _i3.Future<bool> get hasConnection =>
+  _i6.Future<bool> get hasConnection =>
       (super.noSuchMethod(Invocation.getter(#hasConnection),
-          returnValue: Future<bool>.value(false)) as _i3.Future<bool>);
+          returnValue: Future<bool>.value(false)) as _i6.Future<bool>);
 }
 
 /// A class which mocks [GameRemoteDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockGameRemoteDataSource extends _i1.Mock
-    implements _i4.GameRemoteDataSource {
+    implements _i3.GameRemoteDataSource {
   MockGameRemoteDataSource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i3.Future<List<_i5.GameModel>> fetchGameList() =>
-      (super.noSuchMethod(Invocation.method(#fetchGameList, []),
-              returnValue: Future<List<_i5.GameModel>>.value(<_i5.GameModel>[]))
-          as _i3.Future<List<_i5.GameModel>>);
+  _i6.Future<List<_i7.GameModel>> fetchGameList(
+          {_i8.GamesOrdering? ordering}) =>
+      (super.noSuchMethod(
+              Invocation.method(#fetchGameList, [], {#ordering: ordering}),
+              returnValue: Future<List<_i7.GameModel>>.value(<_i7.GameModel>[]))
+          as _i6.Future<List<_i7.GameModel>>);
 }
 
 /// A class which mocks [GameLocalDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockGameLocalDataSource extends _i1.Mock
-    implements _i6.GameLocalDataSource {
+    implements _i4.GameLocalDataSource {
   MockGameLocalDataSource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i3.Future<List<_i5.GameModel>> fetchCahedGames() =>
+  _i6.Future<List<_i7.GameModel>> fetchCahedGames() =>
       (super.noSuchMethod(Invocation.method(#fetchCahedGames, []),
-              returnValue: Future<List<_i5.GameModel>>.value(<_i5.GameModel>[]))
-          as _i3.Future<List<_i5.GameModel>>);
+              returnValue: Future<List<_i7.GameModel>>.value(<_i7.GameModel>[]))
+          as _i6.Future<List<_i7.GameModel>>);
   @override
-  _i3.Future<void> addGameListToCache(List<_i5.GameModel>? games) =>
+  _i6.Future<void> addGameListToCache(List<_i7.GameModel>? games) =>
       (super.noSuchMethod(Invocation.method(#addGameListToCache, [games]),
           returnValue: Future<void>.value(),
-          returnValueForMissingStub: Future<void>.value()) as _i3.Future<void>);
+          returnValueForMissingStub: Future<void>.value()) as _i6.Future<void>);
+}
+
+/// A class which mocks [GameRepositoryImpl].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGameRepositoryImpl extends _i1.Mock
+    implements _i9.GameRepositoryImpl {
+  @override
+  _i2.NetworkInfo get networkInfo =>
+      (super.noSuchMethod(Invocation.getter(#networkInfo),
+          returnValue: _FakeNetworkInfo()) as _i2.NetworkInfo);
+  @override
+  _i3.GameRemoteDataSource get remoteDataSource => (super.noSuchMethod(
+      Invocation.getter(#remoteDataSource),
+      returnValue: _FakeGameRemoteDataSource()) as _i3.GameRemoteDataSource);
+  @override
+  _i4.GameLocalDataSource get localDataSource =>
+      (super.noSuchMethod(Invocation.getter(#localDataSource),
+          returnValue: _FakeGameLocalDataSource()) as _i4.GameLocalDataSource);
+  @override
+  _i6.Future<_i5.Either<_i10.Failure, List<_i11.GameEntity>>> fetchGameList(
+          {_i8.GamesOrdering? ordering}) =>
+      (super.noSuchMethod(
+              Invocation.method(#fetchGameList, [], {#ordering: ordering}),
+              returnValue:
+                  Future<_i5.Either<_i10.Failure, List<_i11.GameEntity>>>.value(
+                      _FakeEither<_i10.Failure, List<_i11.GameEntity>>()))
+          as _i6.Future<_i5.Either<_i10.Failure, List<_i11.GameEntity>>>);
 }
