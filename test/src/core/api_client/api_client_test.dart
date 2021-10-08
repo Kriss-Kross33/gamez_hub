@@ -28,7 +28,7 @@ void main() {
       String path = "?key=${apiKey['KEY']}";
       final uri = Uri.parse('${ApiConfig.BASE_URL}${ApiConfig.GAMES}$path');
       when(mockClient.get(uri, headers: anyNamed('headers')))
-          .thenAnswer((realInvocation) async => Response('success', 200));
+          .thenAnswer((_) async => Response('success', 200));
       //* act
       await apiClient.get(endpoint: ApiConfig.GAMES);
       //* assert

@@ -12,10 +12,10 @@ class ApiClient {
     };
   }
 
-  Future<Response> get({required endpoint}) async {
+  Future<Response> get({required endpoint, String query = ''}) async {
     Map<String, String> headers = _getHeaders();
     String path = "?key=${apiKey['KEY']}";
-    final uri = Uri.parse('${ApiConfig.BASE_URL}${ApiConfig.GAMES}$path');
+    final uri = Uri.parse('${ApiConfig.BASE_URL}${ApiConfig.GAMES}$path$query');
     print('${ApiConfig.BASE_URL}${ApiConfig.GAMES}$path');
     print(uri.toString());
     Response response = await _client.get(uri, headers: headers);
