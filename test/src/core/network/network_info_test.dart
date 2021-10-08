@@ -8,25 +8,25 @@ import 'network_info_test.mocks.dart';
 
 @GenerateMocks([InternetConnectionChecker])
 void main() {
-  late MockInternetConnectionChecker mockInternetConnectionChecker;
+  late MockInternetConnectionChecker mockConnectionChecker;
   late NetworkInfo networkInfo;
 
   setUp(() {
-    mockInternetConnectionChecker = MockInternetConnectionChecker();
-    networkInfo = NetworkInfoImpl(mockInternetConnectionChecker);
+    mockConnectionChecker = MockInternetConnectionChecker();
+    networkInfo = NetworkInfoImpl(mockConnectionChecker);
   });
 
   group('hasConnection', () {
-    final tHasConnectionFuture = Future.value(true);
     test('should forward the call to InternectConnectionChecker.hasConnection',
         () async {
       //*
-      when(mockInternetConnectionChecker.hasConnection)
-          .thenAnswer((realInvocation) => tHasConnectionFuture);
+      final tHasConnectionFuture = await Future.value(true);
+      when(mockConnectionChecker.hasConnection)
+          .thenAnswer((_) async => tHasConnectionFuture);
       //*
-      final result = networkInfo.hasConnection;
+      final result = await networkInfo.hasConnection;
       //*
-      verify(mockInternetConnectionChecker.hasConnection);
+      verify(mockConnectionChecker.hasConnection);
       expect(result, tHasConnectionFuture);
     });
   });
