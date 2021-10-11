@@ -10,7 +10,7 @@ class FetchGames {
   FetchGames(this.gameRepository);
 
   Future<Either<Failure, List<GameEntity>>> call(
-      {GamesOrdering? ordering}) async {
-    return gameRepository.fetchGameList(ordering: ordering!);
+      {GamesOrdering ordering = GamesOrdering.none}) async {
+    return gameRepository.fetchGameList(ordering: ordering);
   }
 }
