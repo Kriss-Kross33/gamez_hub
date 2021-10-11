@@ -25,7 +25,7 @@ class GameRepositoryImpl extends GameRepository {
       {GamesOrdering ordering = GamesOrdering.none}) async {
     if (await networkInfo.hasConnection) {
       try {
-        final cachedGames = await localDataSource.fetchCahedGames();
+        final cachedGames = await localDataSource.fetchCachedGames();
         if (cachedGames != null) return Right(cachedGames);
         final remoteData =
             await remoteDataSource.fetchGameList(ordering: ordering);
@@ -37,7 +37,7 @@ class GameRepositoryImpl extends GameRepository {
       }
     } else {
       try {
-        List<GameModel>? cachedGames = await localDataSource.fetchCahedGames();
+        List<GameModel>? cachedGames = await localDataSource.fetchCachedGames();
         if (cachedGames != null) {
           return Right(cachedGames);
         }
