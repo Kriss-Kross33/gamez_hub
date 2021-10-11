@@ -4,4 +4,5 @@ class TextConst {
   static const String popularGamesText = 'Popular';
   static const String comingSoonGamesText = 'Coming Soon';
   static const String newGamesText = 'New Games';
+  static const String liveStreamText = 'Live Stream';
 }
