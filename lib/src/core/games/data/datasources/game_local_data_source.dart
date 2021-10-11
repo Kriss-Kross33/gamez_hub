@@ -9,7 +9,7 @@ abstract class GameLocalDataSource {
   /// Return the Cached list of [GameModel] from the last
   /// time the data was gotten from remote data source.
   /// Throw [CacheException] when no list of [GameModel] is found.
-  Future<List<GameModel>> fetchCahedGames();
+  Future<List<GameModel>?> fetchCahedGames();
 
   /// Cache the list of [GameModel] when data is gotten from
   /// remote data source.
@@ -28,7 +28,7 @@ class GameLocalDataSourceImpl extends GameLocalDataSource {
   }
 
   @override
-  Future<List<GameModel>> fetchCahedGames() async {
+  Future<List<GameModel>?> fetchCahedGames() async {
     final gamesListString =
         await secureStorage.read(key: SecureStorage.FETCH_GAMES_LIST);
     if (gamesListString != null) {
@@ -37,7 +37,7 @@ class GameLocalDataSourceImpl extends GameLocalDataSource {
           .toList();
       return games;
     } else {
-      throw CacheException();
+      return null;
     }
   }
 }
