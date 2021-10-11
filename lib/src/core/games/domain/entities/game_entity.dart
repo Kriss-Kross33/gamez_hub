@@ -6,7 +6,7 @@ class GameEntity extends Equatable {
   final String name;
   final String? released;
   final bool tba;
-  final String backgroundImage;
+  final String? backgroundImage;
   final double rating;
   final int ratingTop;
   final List<RatingsEntity>? ratings;
@@ -115,8 +115,8 @@ class RatingsEntity extends Equatable {
 
 class AddedByStatusEntity extends Equatable {
   final int? yet;
-  final int owned;
-  final int beaten;
+  final int? owned;
+  final int? beaten;
   final int? toplay;
   final int? dropped;
   final int? playing;

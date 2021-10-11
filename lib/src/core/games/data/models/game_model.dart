@@ -6,7 +6,7 @@ class GameModel extends GameEntity {
   final String name;
   final String? released;
   final bool tba;
-  final String backgroundImage;
+  final String? backgroundImage;
   final double rating;
   final int ratingTop;
   final List<RatingsModel>? ratings;
@@ -269,8 +269,8 @@ class RatingsModel extends RatingsEntity {
 
 class AddedByStatusModel extends AddedByStatusEntity {
   final int? yet;
-  final int owned;
-  final int beaten;
+  final int? owned;
+  final int? beaten;
   final int? toplay;
   final int? dropped;
   final int? playing;
