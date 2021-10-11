@@ -1,9 +1,16 @@
+export 'desktop_body.dart';
+export 'game_card/desktop_card.dart';
 export 'game_card/game_card.dart';
+export 'game_card/phone_card.dart';
+export 'game_card/tablet_card.dart';
+export 'live_stream_section/live_stream_section.dart';
 export 'new_games_section/new_games_list_widget.dart';
 export 'new_games_section/new_games_section.dart';
 export 'phone_body.dart';
 export 'popular_section/popular_games_list_widget.dart';
 export 'popular_section/popular_section.dart';
+export 'section_container.dart';
 export 'section_header.dart';
 export 'showcase/showcase_info_widget.dart';
 export 'showcase/showcase_widget.dart';
+export 'tablet_body.dart';

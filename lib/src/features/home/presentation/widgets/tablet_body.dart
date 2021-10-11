@@ -4,14 +4,14 @@ import 'package:gamez_hub/src/core/games/bloc/games_bloc/games_bloc.dart';
 import 'package:gamez_hub/src/core/service_locator/service_locator.dart';
 import 'package:gamez_hub/src/features/home/presentation/widgets/widgets.dart';
 
-class PhoneBody extends StatefulWidget {
-  const PhoneBody({Key? key}) : super(key: key);
+class TabletBody extends StatefulWidget {
+  const TabletBody({Key? key}) : super(key: key);
 
   @override
-  _PhoneBodyState createState() => _PhoneBodyState();
+  _TabletBodyState createState() => _TabletBodyState();
 }
 
-class _PhoneBodyState extends State<PhoneBody> {
+class _TabletBodyState extends State<TabletBody> {
   late GamesBloc gamesBloc;
 
   @override

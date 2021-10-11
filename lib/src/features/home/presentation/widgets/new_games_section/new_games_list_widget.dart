@@ -36,9 +36,7 @@ class _NewGamesListWidgetState extends State<NewGamesListWidget> {
         bloc: _gamesBloc,
         builder: (context, state) {
           if (state is GamesLoadedState) {
-            return Container(
-              height: 220,
-              width: 400,
+            return SectionContainer(
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {

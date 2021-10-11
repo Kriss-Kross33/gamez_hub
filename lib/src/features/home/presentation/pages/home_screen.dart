@@ -13,8 +13,8 @@ class HomeScreen extends StatelessWidget {
       body: ListView(
         children: [
           ResponsiveLayout(
-            desktop: Container(),
-            tablet: Container(),
+            desktop: DesktopBody(),
+            tablet: TabletBody(),
             phone: PhoneBody(),
           ),
         ],

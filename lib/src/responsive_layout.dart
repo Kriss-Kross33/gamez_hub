@@ -28,7 +28,7 @@ class ResponsiveLayout extends StatelessWidget {
       MediaQuery.of(context).size.width < tabletLimit;
 
   static bool isDesktop(BuildContext context) =>
-      MediaQuery.of(context).size.height >= tabletLimit;
+      MediaQuery.of(context).size.width >= tabletLimit;
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +37,8 @@ class ResponsiveLayout extends StatelessWidget {
         if (constraints.maxWidth >= tabletLimit) {
           return desktop;
         } else if (constraints.maxWidth >= phoneLimit) {
+          print('WIDTH: ${MediaQuery.of(context).size.width}');
+          print('DEVICE IS TABLET');
           return tablet;
         }
         return phone;

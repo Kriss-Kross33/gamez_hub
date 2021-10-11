@@ -13,9 +13,7 @@ class PopularGamesListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     List<GameEntity> firstSixGames = games.take(6).toList();
     return Flexible(
-      child: Container(
-        height: 220,
-        width: 400,
+      child: SectionContainer(
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
