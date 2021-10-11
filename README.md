@@ -1,2 +1,2 @@
 # gamez_hub
-A flutter application about video games powered by TheGamesDb API.
+A flutter application to showcase video games powered by TheGamesDb API.
