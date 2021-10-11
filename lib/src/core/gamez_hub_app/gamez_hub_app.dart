@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gamez_hub/src/core/gamez_hub_app/widgets/widget.dart';
 import 'package:gamez_hub/src/responsive_layout.dart';
-
-import 'widgets/phone/phone_home.dart';
 
 class GamezHubApp extends StatelessWidget {
   const GamezHubApp({Key? key}) : super(key: key);
@@ -10,8 +9,8 @@ class GamezHubApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveLayout(
       phone: PhoneHome(),
-      tablet: Container(),
-      desktop: Container(),
+      tablet: TabletHome(),
+      desktop: DesktopHome(),
     );
   }
 }
