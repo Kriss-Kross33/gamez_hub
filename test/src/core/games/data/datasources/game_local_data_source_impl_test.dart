@@ -31,7 +31,7 @@ void main() {
       when(mockFlutterSecureStorage.read(key: anyNamed('key')))
           .thenAnswer((_) async => fixture('games.json'));
       //* act
-      final result = await localDataSource.fetchCahedGames();
+      final result = await localDataSource.fetchCachedGames();
       //* assert
       verify(
           mockFlutterSecureStorage.read(key: SecureStorage.FETCH_GAMES_LIST));
@@ -44,7 +44,7 @@ void main() {
       when(mockFlutterSecureStorage.read(key: anyNamed('key')))
           .thenThrow(CacheException());
       //* act
-      final call = localDataSource.fetchCahedGames;
+      final call = localDataSource.fetchCachedGames;
       //* assert
       expect(() => call(), throwsA(isA<CacheException>()));
     });

@@ -20,7 +20,7 @@ class LiveStreamSection extends StatelessWidget {
           SizedBox(
             height: 20.0,
           ),
-          NewGamesListWidget(),
+          // NewGamesListWidget(),
         ],
       ),
     );

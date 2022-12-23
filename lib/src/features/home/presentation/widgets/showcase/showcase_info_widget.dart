@@ -52,14 +52,14 @@ class ShowcaseInfoWidget extends StatelessWidget {
             Text(
               'Online Watching',
               style: Theme.of(context).textTheme.headline4?.copyWith(
-                    color: AppColor.darkSecondaryColor,
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
             ),
             Text(
               title,
               style: Theme.of(context).textTheme.headline5?.copyWith(
-                    color: AppColor.darkSecondaryColor,
+                    color: Colors.white,
                     fontWeight: FontWeight.w500,
                   ),
             ),
