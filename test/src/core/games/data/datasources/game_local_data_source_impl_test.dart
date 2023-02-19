@@ -42,7 +42,7 @@ void main() {
         () {
       //* arrange
       when(mockFlutterSecureStorage.read(key: anyNamed('key')))
-          .thenThrow(CacheException());
+          .thenThrow(CacheException(errorMessage: 'cache error'));
       //* act
       final call = localDataSource.fetchCachedGames;
       //* assert

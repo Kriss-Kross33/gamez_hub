@@ -1,8 +1,7 @@
+import 'package:api_client/api_client.dart';
+import 'package:api_client/src/config/config.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gamez_hub/src/core/api_client/api_client.dart';
-import 'package:gamez_hub/src/core/config/key.dart';
-import 'package:gamez_hub/src/core/constants/endpoint_constants.dart';
-import 'package:http/http.dart';
+import 'package:http/http.dart' show Client, Response;
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
@@ -15,6 +14,7 @@ import 'api_client_test.mocks.dart';
 void main() {
   late MockClient mockClient;
   late ApiClient apiClient;
+
   setUp(() {
     mockClient = MockClient();
     apiClient = ApiClient(mockClient);

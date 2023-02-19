@@ -59,9 +59,11 @@ void main() {
           () async {
         //* ararange
 
-        when(mockGameRemoteDataSource.fetchGameList(
-                ordering: GamesOrdering.none))
-            .thenAnswer((_) async => gameModelList);
+        when(
+          mockGameRemoteDataSource.fetchGameList(
+            ordering: GamesOrdering.none,
+          ),
+        ).thenAnswer((_) async => gameModelList);
         //* act
         // List<GameEntity> games = gameModelList.cast<GameEntity>().toList();
         final result =
@@ -112,7 +114,7 @@ void main() {
         //* arrange
         when(mockGameRemoteDataSource.fetchGameList(
                 ordering: GamesOrdering.none))
-            .thenThrow(ServerException());
+            .thenThrow(ServerException(errorMessage: 'unknown error'));
         //* act
         final result =
             await gameRepsitory.fetchGameList(ordering: GamesOrdering.none);
@@ -132,27 +134,28 @@ void main() {
       test('should return locally cached data when the data is present',
           () async {
         //* arrange
-        when(mockLocalDataSource.fetchCahedGames())
+        when(mockLocalDataSource.fetchCachedGames())
             .thenAnswer((_) async => gameModelList);
         //* act
         final result =
             await gameRepsitory.fetchGameList(ordering: GamesOrdering.none);
         //* assert
         verifyZeroInteractions(mockGameRemoteDataSource);
-        verify(mockLocalDataSource.fetchCahedGames());
+        verify(mockLocalDataSource.fetchCachedGames());
         expect(result, equals(Right(gameModelList)));
       });
 
       test('should throw [CacheException] when there is no cache data present',
           () async {
         //* arrange
-        when(mockLocalDataSource.fetchCahedGames()).thenThrow(CacheException());
+        when(mockLocalDataSource.fetchCachedGames())
+            .thenThrow(CacheException(errorMessage: 'cache error'));
         //* act
         final result =
             await gameRepsitory.fetchGameList(ordering: GamesOrdering.none);
         //* assert
         verifyZeroInteractions(mockGameRemoteDataSource);
-        verify(mockLocalDataSource.fetchCahedGames());
+        verify(mockLocalDataSource.fetchCachedGames());
         expect(result, equals(Left(CacheFailure())));
       });
     });

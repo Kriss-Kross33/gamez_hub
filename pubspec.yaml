@@ -11,24 +11,32 @@ environment:
 
 dependencies:
   api_client:
-    path: packages/api_client
+    path: 'packages/api_client'
+  authentication_repository:
+    path: 'packages/authentication_repository'
   bottom_navy_bar: ^6.0.0
   cached_network_image: ^3.2.1
   connectivity: ^3.0.6
-
   cupertino_icons: ^1.0.5
   dartz: ^0.10.1
   equatable: ^2.0.5
+  errors:
+    path: 'packages/errors'
+  font_awesome_flutter: ^9.1.0
+  formz_input:
+    path: 'packages/formz_input'
   flutter:
     sdk: flutter
   flutter_bloc: ^7.3.3
   flutter_rating_bar: ^4.0.1
-  flutter_secure_storage: ^4.2.1
   flutter_svg: ^1.1.6
   get_it: ^7.2.0
   http: ^0.13.5
   internet_connection_checker: ^0.0.1+4
-  font_awesome_flutter: ^9.1.0
+  push_notification_repository:
+    path: 'packages/push_notification_repository'
+  storage_repository:
+    path: 'packages/storage_repository'
 
 dev_dependencies:
   build_runner: ^2.0.6

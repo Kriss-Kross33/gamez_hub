@@ -1,5 +1,5 @@
+import 'package:api_client/api_client.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gamez_hub/src/core/api_client/api_client.dart';
 import 'package:gamez_hub/src/core/constants/endpoint_constants.dart';
 import 'package:gamez_hub/src/core/error/exception.dart';
 import 'package:gamez_hub/src/core/games/data/datasources/game_remote_data_source.dart';

@@ -26,7 +26,13 @@ class GameRepositoryImpl extends GameRepository {
     if (await networkInfo.hasConnection) {
       try {
         final cachedGames = await localDataSource.fetchCachedGames();
-        if (cachedGames != null) return Right(cachedGames);
+        if (cachedGames != null) {
+          for (var cacheGame in cachedGames) {
+            print(cacheGame.toJson());
+            print('\n');
+          }
+          return Right(cachedGames);
+        }
         final remoteData =
             await remoteDataSource.fetchGameList(ordering: ordering);
         await localDataSource.addGameListToCache(remoteData);
@@ -39,9 +45,10 @@ class GameRepositoryImpl extends GameRepository {
       try {
         List<GameModel>? cachedGames = await localDataSource.fetchCachedGames();
         if (cachedGames != null) {
+          print(cachedGames);
           return Right(cachedGames);
         }
-        throw CacheException();
+        throw CacheException(errorMessage: 'cache error');
       } on CacheException {
         return Left(CacheFailure());
       }

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:gamez_hub/src/core/api_client/api_client.dart';
+import 'package:api_client/api_client.dart';
 import 'package:gamez_hub/src/core/constants/endpoint_constants.dart';
 import 'package:gamez_hub/src/core/error/exception.dart';
 import 'package:gamez_hub/src/core/games/data/models/game_enums.dart';
@@ -30,7 +30,7 @@ class GameRemoteDataSourceImpl extends GameRemoteDataSource {
       List gamesList = responseBody['results'];
       return _mapListToGameModels(gamesList);
     } else
-      throw ServerException();
+      throw ServerException(errorMessage: response.body);
   }
 
   String _getQueryString(GamesOrdering ordering) {
