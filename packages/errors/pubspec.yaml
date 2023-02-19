@@ -1,0 +1,14 @@
+name: errors
+description: A dart package that defines errors that occurs in the app.
+version: 1.0.0
+publish_to: none
+
+environment: 
+  sdk: ">=2.18.0 <3.0.0"
+  flutter: ^3.3.0
+
+dependencies:
+  equatable: ^2.0.5
+
+dev_dependencies:
+  very_good_analysis: ^3.1.0
