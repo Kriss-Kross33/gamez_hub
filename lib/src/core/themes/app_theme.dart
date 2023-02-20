@@ -108,9 +108,9 @@ class AppTheme {
     primarySwatch: Colors.brown,
     colorScheme: ColorScheme.dark(
       primary: _darkOnPrimaryColor,
-      primaryVariant: _darkPrimaryVariantColor,
+      primaryContainer: _darkPrimaryVariantColor,
       secondary: _darkSecondaryColor,
-      secondaryVariant: _darkSecondaryVariantColor,
+      secondaryContainer: _darkSecondaryVariantColor,
       onPrimary: _darkOnPrimaryColor,
     ),
     iconTheme: _iconTheme,
@@ -124,9 +124,7 @@ class AppTheme {
     scaffoldBackgroundColor: _lightPrimaryVariantColor,
     colorScheme: ColorScheme.dark(
       primary: _lightOnPrimaryColor,
-      primaryVariant: _lightPrimaryVariantColor,
       secondary: _lightSecondaryColor,
-      secondaryVariant: _darkSecondaryVariantColor,
       onPrimary: _lightOnPrimaryColor,
     ),
     iconTheme: IconThemeData(
