@@ -71,7 +71,7 @@ class ShowcaseInfoWidget extends StatelessWidget {
               width: 140,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: AppColor.buttonColor,
+                  backgroundColor: AppColor.buttonColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
