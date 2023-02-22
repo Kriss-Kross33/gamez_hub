@@ -1,5 +1,5 @@
+import 'package:api_client/api_client.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:gamez_hub/src/core/api_client/api_client.dart';
 import 'package:gamez_hub/src/core/games/bloc/games_bloc/games_bloc.dart';
 import 'package:gamez_hub/src/core/games/data/datasources/game_local_data_source.dart';
 import 'package:gamez_hub/src/core/games/data/datasources/game_remote_data_source.dart';
