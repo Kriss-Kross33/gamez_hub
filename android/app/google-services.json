@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "526874957737",
+    "project_id": "gamez-hub",
+    "storage_bucket": "gamez-hub.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526874957737:android:86d83d0759a4fa3d5056b8",
+        "android_client_info": {
+          "package_name": "com.example.gamez_hub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "526874957737-2ethlbubtra7d9t33sqokdim1gl597hv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-eqSnT_DNC_Th5Q5zq0f50ygOScv-L6E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "526874957737-2ethlbubtra7d9t33sqokdim1gl597hv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
