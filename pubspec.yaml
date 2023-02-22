@@ -35,6 +35,7 @@ dependencies:
   internet_connection_checker: ^0.0.1+4
   push_notification_repository:
     path: 'packages/push_notification_repository'
+  shimmer: ^2.0.0
   storage_repository:
     path: 'packages/storage_repository'
 
