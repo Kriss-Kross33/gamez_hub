@@ -4,7 +4,7 @@ import 'package:gamez_hub/src/app.dart';
 import 'package:gamez_hub/src/core/service_locator/service_locator.dart';
 
 Future<void> main() async {
-  SimpleBlocObserver observer = SimpleBlocObserver();
+  Bloc.observer = SimpleBlocObserver();
   await setupLocator();
   runApp(App());
 }
