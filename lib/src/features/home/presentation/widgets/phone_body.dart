@@ -35,7 +35,9 @@ class _PhoneBodyState extends State<PhoneBody> {
           BlocBuilder<GamesBloc, GamesState>(
             bloc: gamesBloc,
             builder: (context, state) {
-              if (state is GamesLoadedState) {
+              if (state is GamesLoadingState) {
+                return PhoneLoadingWidget();
+              } else if (state is GamesLoadedState) {
                 return Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -51,8 +53,8 @@ class _PhoneBodyState extends State<PhoneBody> {
               return SizedBox.shrink();
             },
           ),
-          NewGamesSection(),
-          LiveStreamSection(),
+          // NewGamesSection(),
+          // LiveStreamSection(),
         ],
       ),
     );

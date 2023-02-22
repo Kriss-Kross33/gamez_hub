@@ -16,7 +16,7 @@ class PhoneCard extends StatelessWidget {
           game.backgroundImage == null
               ? Container(
                   height: 200,
-                  width: 200,
+                  width: 160,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
                     image: DecorationImage(

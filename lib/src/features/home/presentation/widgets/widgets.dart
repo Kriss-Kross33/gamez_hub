@@ -4,6 +4,7 @@ export 'game_card/game_card.dart';
 export 'game_card/phone_card.dart';
 export 'game_card/tablet_card.dart';
 export 'live_stream_section/live_stream_section.dart';
+export 'loading_widgets/loading_widgets.dart';
 export 'new_games_section/new_games_list_widget.dart';
 export 'new_games_section/new_games_section.dart';
 export 'phone_body.dart';
