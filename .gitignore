@@ -22,3 +22,7 @@ doc/api/
 
 # Config files
 *.config
+.flutter-plugins
+.vscode/launch.json
+.flutter-plugins-dependencies
+.fvm
