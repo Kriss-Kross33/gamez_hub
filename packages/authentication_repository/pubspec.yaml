@@ -10,9 +10,9 @@ dependencies:
   api_client:
     path: ../api_client
   dartz: ^0.10.1
+  equatable:  ^2.0.5
   errors:
     path: ../errors
-  equatable:  ^2.0.5
   json_annotation: ^4.7.0
   meta: ^1.7.0
   storage_repository:
