@@ -42,7 +42,7 @@ class _DesktopBodyState extends State<DesktopBody> {
                     ShowcaseWidget(
                       game: state.games.last,
                     ),
-                    PopularSection(
+                    GameSection(
                       games: state.games,
                     ),
                   ],

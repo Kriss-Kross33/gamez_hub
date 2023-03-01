@@ -44,7 +44,10 @@ class _PhoneBodyState extends State<PhoneBody> {
                     ShowcaseWidget(
                       game: state.games.last,
                     ),
-                    PopularSection(
+                    GameSection(
+                      games: state.games,
+                    ),
+                    GameSection(
                       games: state.games,
                     ),
                   ],

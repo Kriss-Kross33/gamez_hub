@@ -42,7 +42,7 @@ class _TabletBodyState extends State<TabletBody> {
                     ShowcaseWidget(
                       game: state.games.last,
                     ),
-                    PopularSection(
+                    GameSection(
                       games: state.games,
                     ),
                   ],

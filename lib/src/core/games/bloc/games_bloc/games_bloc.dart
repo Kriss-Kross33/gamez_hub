@@ -17,6 +17,8 @@ class GamesBloc extends Bloc<GamesEvent, GamesState> {
       : _fetchGames = fetchGames,
         super(GamesInitialState());
 
+  List<GameEntity> gamesList = <GameEntity>[];
+
   @override
   Stream<GamesState> mapEventToState(
     GamesEvent event,
@@ -46,6 +48,7 @@ class GamesBloc extends Bloc<GamesEvent, GamesState> {
     yield* _eitherGamesOrFailure.fold((failure) async* {
       yield* _mapFailureToState(failure);
     }, (games) async* {
+      gamesList = games;
       yield GamesLoadedState(games: games);
     });
   }

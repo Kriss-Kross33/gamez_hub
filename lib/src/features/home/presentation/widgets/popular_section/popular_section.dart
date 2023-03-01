@@ -3,9 +3,9 @@ import 'package:gamez_hub/src/core/constants/text_consts.dart';
 import 'package:gamez_hub/src/core/games/domain/entities/game_entity.dart';
 import 'package:gamez_hub/src/features/home/presentation/widgets/widgets.dart';
 
-class PopularSection extends StatelessWidget {
+class GameSection extends StatelessWidget {
   final List<GameEntity> games;
-  const PopularSection({Key? key, required this.games}) : super(key: key);
+  const GameSection({Key? key, required this.games}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
