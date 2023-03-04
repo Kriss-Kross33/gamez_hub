@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
+import 'package:gamez_hub/src/common/games/domain/entities/entities.dart';
 import 'package:gamez_hub/src/core/error/failure.dart';
-import 'package:gamez_hub/src/core/games/data/models/game_enums.dart';
-import 'package:gamez_hub/src/core/games/domain/entities/game_entity.dart';
 
 abstract class GameRepository {
   /// Fetch the list of [GamesEntity] from the server

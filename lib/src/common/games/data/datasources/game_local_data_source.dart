@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:gamez_hub/src/common/games/data/data.dart';
 import 'package:gamez_hub/src/core/constants/secure_storage_consts.dart';
 import 'package:gamez_hub/src/core/error/exception.dart';
-import 'package:gamez_hub/src/core/games/data/models/game_model.dart';
 
 abstract class GameLocalDataSource {
   /// Return the Cached list of [GameModel] from the last

@@ -1,4 +1,4 @@
-import 'package:gamez_hub/src/core/games/domain/entities/twitch_game_entity.dart';
+import 'package:gamez_hub/src/common/games/domain/entities/entities.dart';
 
 class TwitchGameModel extends TwitchGameEntity {
   final String id;

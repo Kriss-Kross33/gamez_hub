@@ -2,19 +2,17 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:gamez_hub/src/common/games/domain/domain.dart';
 import 'package:gamez_hub/src/core/constants/error_consts.dart';
 import 'package:gamez_hub/src/core/error/failure.dart';
-import 'package:gamez_hub/src/core/games/data/models/game_enums.dart';
-import 'package:gamez_hub/src/core/games/domain/entities/game_entity.dart';
-import 'package:gamez_hub/src/core/games/domain/usecases/fetch_games.dart';
 
 part 'games_event.dart';
 part 'games_state.dart';
 
 class GamesBloc extends Bloc<GamesEvent, GamesState> {
-  final FetchGames _fetchGames;
-  GamesBloc({required FetchGames fetchGames})
-      : _fetchGames = fetchGames,
+  final GameRepository _gameRepository;
+  GamesBloc({required GameRepository gameRepository})
+      : _gameRepository = gameRepository,
         super(GamesInitialState());
 
   List<GameEntity> gamesList = <GameEntity>[];
@@ -44,7 +42,7 @@ class GamesBloc extends Bloc<GamesEvent, GamesState> {
   Stream<GamesState> _getGamesByOrdering(
       {required GamesOrdering ordering}) async* {
     yield GamesLoadingState();
-    final _eitherGamesOrFailure = await _fetchGames();
+    final _eitherGamesOrFailure = await _gameRepository.fetchGameList();
     yield* _eitherGamesOrFailure.fold((failure) async* {
       yield* _mapFailureToState(failure);
     }, (games) async* {

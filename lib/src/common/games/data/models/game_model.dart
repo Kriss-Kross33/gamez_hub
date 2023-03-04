@@ -1,4 +1,4 @@
-import 'package:gamez_hub/src/core/games/domain/entities/game_entity.dart';
+import 'package:gamez_hub/src/common/games/domain/domain.dart';
 
 class GameModel extends GameEntity {
   final int id;

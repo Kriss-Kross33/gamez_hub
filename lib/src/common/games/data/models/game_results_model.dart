@@ -1,4 +1,4 @@
-import 'package:gamez_hub/src/core/games/data/models/models.dart';
+import 'package:gamez_hub/src/common/games/data/data.dart';
 
 class GameResultModel {
   final int count;

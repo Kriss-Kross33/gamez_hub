@@ -1,11 +1,12 @@
 import 'dart:convert';
 
 import 'package:api_client/api_client.dart';
+import 'package:gamez_hub/src/common/games/domain/entities/entities.dart';
 import 'package:gamez_hub/src/core/constants/endpoint_constants.dart';
 import 'package:gamez_hub/src/core/error/exception.dart';
-import 'package:gamez_hub/src/core/games/data/models/game_enums.dart';
-import 'package:gamez_hub/src/core/games/data/models/game_model.dart';
 import 'package:http/http.dart';
+
+import '../models/models.dart';
 
 abstract class GameRemoteDataSource {
   /// Return the [List<GameModel>] when data is gotten from the
