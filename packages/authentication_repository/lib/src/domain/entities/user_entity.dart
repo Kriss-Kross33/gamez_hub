@@ -11,8 +11,6 @@ class UserEntity extends Equatable {
     required this.id,
     required this.email,
     required this.username,
-    required this.gender,
-    required this.password,
   });
 
   /// The id of the user.
@@ -21,29 +19,19 @@ class UserEntity extends Equatable {
   /// The user's email address
   final String email;
 
-  /// The user's password
-  final String password;
-
   /// The user's username
   final String username;
-
-  /// The user's gender
-  final String gender;
 
   static UserEntity empty = const UserEntity(
     id: '',
     email: '',
     username: '',
-    gender: '',
-    password: '',
   );
 
   @override
-  List<Object> get props => [
+  List<Object?> get props => [
         id,
         email,
         username,
-        gender,
-        password,
       ];
 }

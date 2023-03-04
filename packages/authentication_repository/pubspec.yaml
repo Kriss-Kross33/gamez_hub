@@ -9,6 +9,7 @@ environment:
 dependencies:
   api_client:
     path: ../api_client
+  dartdoc: ^6.1.1
   dartz: ^0.10.1
   equatable:  ^2.0.5
   errors:
@@ -18,12 +19,14 @@ dependencies:
   # Unfortunately, a breaking change was introduced in 4.5.2.
   # https://github.com/firebase/flutterfire/issues/9806
   firebase_core_platform_interface: 4.5.3
+  flutter_facebook_auth: ^5.0.8
+  google_sign_in: ^5.4.2
   json_annotation: ^4.7.0
   meta: ^1.7.0
   storage_repository:
     path: ../storage_repository
   very_good_analysis: ^3.0.0
-  dartdoc: ^6.1.1
+  
 
 
 dev_dependencies:

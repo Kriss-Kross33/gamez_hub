@@ -13,8 +13,6 @@ class UserModel extends UserEntity {
     required super.id,
     required super.username,
     required super.email,
-    required super.gender,
-    required super.password,
   });
 
   /// Converts data from server to [UserModel]
