@@ -1,2 +1,82 @@
 {
+    "yaml.schemas": {
+        "file:///Users/kwamefosu/.vscode/extensions/atlassian.atlascode-3.0.2/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    },
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorCustomizations": {
+        "[Material Theme Darker]": {
+            "statusBar.debuggingBackground": "#212121",
+            "gitDecoration.modifiedResourceForeground": "#32CD32"
+        }
+    },
+    "editor.tokenColorCustomizations": {
+        "[Material Theme Darker]": {
+            "variables": "#229977",
+            "comments": "#FF9900"
+        }
+    },
+    
+    
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.codeActionsOnSave": {
+            "source.fixAll": true,
+            "source.organizeImports": true,
+            "source.sortMembers": false
+        },
+        "editor.selectionHighlight": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": false
+    },
+    "bracket-pair-colorizer-2.depreciation-notice": false,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs":"active",
+    "dart.previewFlutterUiGuides": true,
+    "dart.previewFlutterUiGuidesCustomTracking": true,
+    "newFile.defaultBaseFileName": "newFile",
+    "newFile.relativeTo": "file", // "root" or "project"
+    "newFile.defaultFileExtension": ".dart",
+    "newFile.rootDirectory": "~",
+    "newFile.showPathRelativeTo": "root", // "project" or "none"
+    "newFile.expandBraces": false,
+    "redhat.telemetry.enabled": false,
+    "workbench.colorTheme": "Material Theme Darker",
+    "editor.fontFamily": "'Fira Code', Menlo, Monaco, 'Courier New', monospace", // setting to true will allow for creating multiple files such as `new-folder/{file1,file2}.js`
+    "editor.fontLigatures": true,
+    "[yaml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "atlascode.jira.jqlList": [
+        {
+            "id": "f9911636-40db-48e6-8132-dff2a1273a9c",
+            "enabled": true,
+            "name": "My waya Issues",
+            "query": "assignee = currentUser() AND resolution = Unresolved ORDER BY lastViewed DESC",
+            "siteId": "dacf84f2-02c1-4515-acff-37c1184cf10c",
+            "monitor": true
+        }
+    ],
+    "atlascode.jira.explorer.enabled": true,
+    "dart.openDevTools": "flutter",
+    "dart.debugExternalPackageLibraries": true,
+    "dart.debugSdkLibraries": false,
+    "dart.flutterSdkPath": "/Users/kwamefosu/fvm/default/bin",
+    "git.mergeEditor": false,
+    "editor.parameterHints.enabled": false,
+    "atlascode.bitbucket.enabled": true,
+    "atlascode.jira.enabled": true,
+    "atlascode.jira.explorer.nestSubtasks": false,
+    "atlascode.jira.explorer.monitorEnabled": false,
+    "atlascode.jira.hover.enabled": false,
+    "atlascode.jira.explorer.refreshInterval": 15,
+    "git.confirmSync": false,
+    "[python]": {
+        "editor.formatOnType": true
+    }
 }

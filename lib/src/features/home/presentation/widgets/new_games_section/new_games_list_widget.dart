@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gamez_hub/src/core/games/bloc/games_bloc/games_bloc.dart';
-import 'package:gamez_hub/src/core/games/data/models/game_enums.dart';
-import 'package:gamez_hub/src/core/games/domain/entities/game_entity.dart';
-import 'package:gamez_hub/src/core/service_locator/service_locator.dart';
+import 'package:gamez_hub/src/common/games/games.dart';
 
+import '../../../../../core/service_locator/service_locator.dart';
 import '../widgets.dart';
 
 class NewGamesListWidget extends StatefulWidget {

@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:gamez_hub/src/common/games/games.dart';
 import 'package:gamez_hub/src/core/constants/asset_consts.dart';
-import 'package:gamez_hub/src/core/games/domain/entities/game_entity.dart';
 
 class DesktopCard extends StatelessWidget {
   final GameEntity game;

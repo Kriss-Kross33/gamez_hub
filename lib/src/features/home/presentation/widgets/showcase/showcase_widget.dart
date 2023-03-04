@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:gamez_hub/src/common/games/games.dart';
 import 'package:gamez_hub/src/core/constants/app_color.dart';
-import 'package:gamez_hub/src/core/games/domain/entities/game_entity.dart';
 import 'package:gamez_hub/src/core/gamez_hub_app/widgets/widget.dart';
 import 'package:gamez_hub/src/features/home/presentation/widgets/widgets.dart';
 

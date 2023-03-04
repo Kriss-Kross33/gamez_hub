@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gamez_hub/src/core/games/domain/entities/game_entity.dart';
+import 'package:gamez_hub/src/common/games/games.dart';
 import 'package:gamez_hub/src/features/home/presentation/widgets/widgets.dart';
 import 'package:gamez_hub/src/responsive_layout.dart';
 

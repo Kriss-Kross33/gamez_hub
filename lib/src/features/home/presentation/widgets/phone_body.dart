@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gamez_hub/src/core/games/bloc/games_bloc/games_bloc.dart';
+import 'package:gamez_hub/src/common/games/games.dart';
 import 'package:gamez_hub/src/core/service_locator/service_locator.dart';
 import 'package:gamez_hub/src/features/home/presentation/widgets/widgets.dart';
 
