@@ -34,4 +34,6 @@ abstract class AuthenticationRepository {
   ///
   /// Emits [UserEntity.empty] when user is unauthenticated.
   Stream<UserEntity> get user;
+
+  Future<Either<SignupFailure, Success>> signup(SignupEntity signupEntity);
 }

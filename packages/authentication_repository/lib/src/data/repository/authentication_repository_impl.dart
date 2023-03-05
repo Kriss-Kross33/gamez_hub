@@ -3,9 +3,9 @@ import 'dart:convert';
 import 'package:authentication_repository/src/data/data.dart';
 import 'package:authentication_repository/src/domain/domain.dart';
 import 'package:dartz/dartz.dart';
-import 'package:errors/src/failures/login_failure.dart';
-import 'package:errors/src/failures/logout_failure.dart';
+import 'package:errors/errors.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -135,6 +135,35 @@ class AuthenticationRepositoryImpl extends AuthenticationRepository {
     if (userString == null) return UserEntity.empty;
     final userMap = json.decode(userString) as Map<String, dynamic>;
     return UserModel.fromJson(userMap);
+  }
+
+  @override
+  Future<Either<SignupFailure, Success>> signup(
+    SignupEntity signupEntity,
+  ) async {
+    try {
+      final userRef = FirebaseDatabase.instance.ref().child('users');
+
+      final firebaseUser = (await _firebaseAuth.createUserWithEmailAndPassword(
+        email: signupEntity.email,
+        password: signupEntity.password,
+      ))
+          .user;
+      if (firebaseUser != null) {
+        final userDataMap = <String, dynamic>{
+          'email': signupEntity.email,
+          'displayname': signupEntity.username,
+        };
+        await userRef.child(firebaseUser.uid).set(userDataMap);
+        return right(Success.instance);
+      } else {
+        return left(
+          const SignupFailure(errorMessage: 'Account has not been created'),
+        );
+      }
+    } catch (e) {
+      return left(SignupFailure(errorMessage: e.toString()));
+    }
   }
 }
 
