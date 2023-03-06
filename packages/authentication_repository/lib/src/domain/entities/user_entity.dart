@@ -22,7 +22,9 @@ class UserEntity extends Equatable {
   /// The user's username
   final String username;
 
-  static UserEntity empty = const UserEntity(
+  /// Represents an unauthenticated user. Return [UserEntity.empty]
+  /// when the user object is null.
+  static const empty = UserEntity(
     id: '',
     email: '',
     username: '',
