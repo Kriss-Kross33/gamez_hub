@@ -1,0 +1,4 @@
+enum AuthenticationStatus {
+  authenticated,
+  unauthenticated,
+}
