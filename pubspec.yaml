@@ -23,6 +23,7 @@ dependencies:
   errors:
     path: 'packages/errors'
   font_awesome_flutter: ^9.1.0
+  formz: ^0.4.0
   formz_input:
     path: 'packages/formz_input'
   flutter:
