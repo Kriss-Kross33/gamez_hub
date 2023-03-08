@@ -13,10 +13,14 @@ class SignupModel extends SignupEntity {
     required super.email,
     required super.password,
     required super.username,
+    required super.firstName,
+    required super.lastName,
   });
 
+  ///
   factory SignupModel.fromJson(Map<String, dynamic> json) =>
       _$SignupModelFromJson(json);
 
+  ///
   Map<String, dynamic> toJson() => _$SignupModelToJson(this);
 }

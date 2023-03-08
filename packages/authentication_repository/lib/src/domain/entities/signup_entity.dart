@@ -9,7 +9,15 @@ class SignupEntity extends Equatable {
     required this.email,
     required this.password,
     required this.username,
+    required this.firstName,
+    required this.lastName,
   });
+
+  /// The user's first name
+  final String firstName;
+
+  /// The user's last name
+  final String lastName;
 
   /// The user's email address
   final String email;
@@ -21,5 +29,11 @@ class SignupEntity extends Equatable {
   final String username;
 
   @override
-  List<Object> get props => [email, password, username];
+  List<Object> get props => [
+        email,
+        password,
+        username,
+        firstName,
+        lastName,
+      ];
 }
